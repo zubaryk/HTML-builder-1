@@ -10,7 +10,7 @@ fs.readdir('05-merge-styles/styles', (err, files) => {
             stats.isFile();
             path.extname(file);
             if ((stats.isFile() == true) && (path.extname(file) == '.css')) {
-                fs.readFile('05-merge-styles/styles/'+file, (err, data) => {
+                fs.readFile('05-merge-styles/styles/'+file, 'utf-8', (err, data) => {
                     if(err) throw err;
                     fs.writeFile('05-merge-styles/project-dist/bundle.css', data, (err) => {
                         if(err) throw err;
