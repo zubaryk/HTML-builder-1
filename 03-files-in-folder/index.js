@@ -6,11 +6,13 @@ const folderPath = '03-files-in-folder/secret-folder';
 
     fs.readdir('03-files-in-folder/secret-folder', (err, files) => {
         files.forEach(file => {
+            
             fs.stat('03-files-in-folder/secret-folder/'+file, (err, stats) => {
             if (err) {
                  throw err
-            };
-            if(file){
+            }
+            stats.isFile();
+            if(stats.isFile() == true){
             stats.size;
             path.parse(file).name;
             path.extname(file);
@@ -26,3 +28,5 @@ const folderPath = '03-files-in-folder/secret-folder';
 )
 
     
+
+
